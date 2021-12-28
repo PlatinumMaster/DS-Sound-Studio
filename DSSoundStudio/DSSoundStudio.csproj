@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{A91D631C-4C2E-43AC-A6F2-9AAB5E865FA8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DSSoundStudio</RootNamespace>
+    <AssemblyName>DSSoundStudio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>DSSoundStudio.ico</ApplicationIcon>
+    <StartupObject>DSSoundStudio.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastColoredTextBox">
+      <HintPath>..\..\FastColoredTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="LibEndianBinaryIO">
+      <HintPath>..\..\LibEndianBinaryIO.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\..\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IO\INST.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UI\ADSRGraph.cs" />
+    <Compile Include="UI\ISaveable.cs" />
+    <Compile Include="UI\ListViewNF.cs" />
+    <Compile Include="UI\MainMenu.cs" />
+    <Compile Include="UI\MENUINFO.cs" />
+    <Compile Include="UI\MENUITEMINFO_T_RW.cs" />
+    <Compile Include="UI\PianoControl.cs" />
+    <Compile Include="UI\Properties.cs" />
+    <Compile Include="UI\SBNKViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SBNKViewer.Designer.cs">
+      <DependentUpon>SBNKViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SDATViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SDATViewer.Designer.cs">
+      <DependentUpon>SDATViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SSEQImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SSEQImport.Designer.cs">
+      <DependentUpon>SSEQImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SSEQViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SSEQViewer.Designer.cs">
+      <DependentUpon>SSEQViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VistaMenu.cs" />
+    <Compile Include="Util\Win32Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainForm.resources" />
+    <EmbeddedResource Include="Properties\Resources.resources" />
+    <EmbeddedResource Include="UI\ADSRGraph.resources" />
+    <EmbeddedResource Include="UI\PianoControl.resources" />
+    <EmbeddedResource Include="UI\SBNKViewer.resources" />
+    <EmbeddedResource Include="UI\SDATViewer.resources" />
+    <EmbeddedResource Include="UI\SSEQImport.resources" />
+    <EmbeddedResource Include="UI\SSEQViewer.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\libsrc\LibDSSound\LibDSSound.csproj">
+      <Project>{dfa9346a-3276-4478-97d8-923e4d48e239}</Project>
+      <Name>LibDSSound</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibDSSound\LibDSSound.csproj">
+      <Project>{dfa9346a-3276-4478-97d8-923e4d48e239}</Project>
+      <Name>LibDSSound</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
