@@ -1,0 +1,7 @@
+DSSoundStudio/bin/*
+DSSoundStudio/obj/*
+DSSoundStudio/Properties/*
+LibDSSound/bin/*
+LibDSSound/obj/*
+LibDSSound/Properties/*
+.idea/*
